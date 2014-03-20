@@ -55,7 +55,7 @@ class Hooks
 			throw new Exception('Metadatas are not supported for instances of the given class: %class', [ '%class' => get_class($target) ]);
 		}
 
-		ActiveRecord\get_model('registry/' . $type)
+		$metas = ActiveRecord\get_model('registry/' . $type)
 		->select('name, value')
 		->filter_by_targetid($event->key)
 		->pairs;
