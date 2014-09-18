@@ -11,7 +11,6 @@
 
 namespace Icybee\Modules\Registry;
 
-use ICanBoogie\Exception;
 use ICanBoogie\ToArray;
 
 /**
@@ -68,7 +67,7 @@ class MetasHandler implements \ArrayAccess, ToArray
 		}
 		else
 		{
-			throw new Exception('Metadatas are not supported for instances of %class', [ '%class' => get_class($target) ]);
+			throw new \Exception(\ICanBoogie\format('Metadatas are not supported for instances of %class', [ '%class' => get_class($target) ]));
 		}
 
 		if (empty(self::$models[$type]))

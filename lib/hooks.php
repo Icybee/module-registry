@@ -12,7 +12,6 @@
 namespace Icybee\Modules\Registry;
 
 use ICanBoogie\ActiveRecord;
-use ICanBoogie\Exception;
 
 class Hooks
 {
@@ -27,7 +26,7 @@ class Hooks
 	 *
 	 * @param Event $event
 	 *
-	 * @throws Exception
+	 * @throw \Exception
 	 */
 	static public function on_editblock_alter_values(\Icybee\EditBlock\AlterValuesEvent $event, \Icybee\EditBlock $target)
 	{
@@ -52,7 +51,7 @@ class Hooks
 		}
 		else
 		{
-			throw new Exception('Metadatas are not supported for instances of the given class: %class', [ '%class' => get_class($target) ]);
+			throw new \Exception(\ICanBoogie\format('Metadatas are not supported for instances of the given class: %class', [ '%class' => get_class($target) ]));
 		}
 
 		$metas = ActiveRecord\get_model('registry/' . $type)
@@ -82,7 +81,7 @@ class Hooks
 	 *
 	 * @param Event $event
 	 *
-	 * @throws Exception
+	 * @throws \Exception
 	 */
 	static public function on_operation_save(\ICanBoogie\Operation\ProcessEvent $event, \ICanBoogie\SaveOperation $sender)
 	{
@@ -109,7 +108,7 @@ class Hooks
 		}
 		else
 		{
-			throw new Exception('Metadatas are not supported for instances of the given class: %class', [ '%class' => get_class($sender) ]);
+			throw new \Exception(\ICanBoogie\format('Metadatas are not supported for instances of the given class: %class', [ '%class' => get_class($sender) ]));
 		}
 
 		$model = ActiveRecord\get_model('registry/' . $type);
@@ -181,7 +180,7 @@ class Hooks
 	 * @param \ICanBoogie\Operation\ProcessEvent $event
 	 * @param \ICanBoogie\DeleteOperation $operation
 	 *
-	 * @throws Exception
+	 * @throws \Exception
 	 */
 	static public function on_operation_delete(\ICanBoogie\Operation\ProcessEvent $event, \ICanBoogie\DeleteOperation $operation)
 	{
@@ -201,7 +200,7 @@ class Hooks
 		}
 		else
 		{
-			throw new Exception('Metadatas are not supported for instances of the given class: %class', [ '%class' => get_class($module) ]);
+			throw new \Exception(\ICanBoogie\format('Metadatas are not supported for instances of the given class: %class', [ '%class' => get_class($module) ]));
 		}
 
 		ActiveRecord\get_model('registry/' . $type)
