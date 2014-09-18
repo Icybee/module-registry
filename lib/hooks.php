@@ -19,6 +19,33 @@ class Hooks
 	 * Events
 	 */
 
+	static private function resolve_type($source)
+	{
+		if ($source instanceof \Icybee\Modules\Nodes\Module
+		|| $source instanceof \Icybee\Modules\Nodes\SaveOperation)
+		{
+			return 'node';
+		}
+
+		if ($source instanceof \Icybee\Modules\Users\Module
+		|| $source instanceof \Icybee\Modules\Users\SaveOperation)
+		{
+			return 'user';
+		}
+
+		if ($source instanceof \Icybee\Modules\Sites\Module
+		|| $source instanceof \Icybee\Modules\Sites\SaveOperation)
+		{
+			return 'site';
+		}
+
+		throw new \Exception(\ICanBoogie\format('Metadatas are not supported for instances of the given class: %class', [
+
+			'%class' => get_class($source)
+
+		]));
+	}
+
 	/**
 	 * This callback alters the edit block of the "nodes", "users" and "sites" modules, adding
 	 * support for metadatas by loading the metadatas associated with the edited object and
@@ -36,23 +63,7 @@ class Hooks
 		}
 
 		$module = $event->module;
-
-		if ($module instanceof \Icybee\Modules\Nodes\Module)
-		{
-			$type = 'node';
-		}
-		else if ($module instanceof \Icybee\Modules\Users\Module)
-		{
-			$type = 'user';
-		}
-		else if ($module instanceof \Icybee\Modules\Sites\Module)
-		{
-			$type = 'site';
-		}
-		else
-		{
-			throw new \Exception(\ICanBoogie\format('Metadatas are not supported for instances of the given class: %class', [ '%class' => get_class($target) ]));
-		}
+		$type = self::resolve_type($module);
 
 		$metas = ActiveRecord\get_model('registry/' . $type)
 		->select('name, value')
@@ -93,23 +104,7 @@ class Hooks
 		}
 
 		$targetid = $event->rc['key'];
-
-		if ($sender instanceof \Icybee\Modules\Nodes\SaveOperation)
-		{
-			$type = 'node';
-		}
-		else if ($sender instanceof \Icybee\Modules\Users\SaveOperation)
-		{
-			$type = 'user';
-		}
-		else if ($sender instanceof \Icybee\Modules\Sites\SaveOperation)
-		{
-			$type = 'site';
-		}
-		else
-		{
-			throw new \Exception(\ICanBoogie\format('Metadatas are not supported for instances of the given class: %class', [ '%class' => get_class($sender) ]));
-		}
+		$type = self::resolve_type($sender);
 
 		$model = ActiveRecord\get_model('registry/' . $type);
 		$driver_name = $model->connection->driver_name;
@@ -185,23 +180,7 @@ class Hooks
 	static public function on_operation_delete(\ICanBoogie\Operation\ProcessEvent $event, \ICanBoogie\DeleteOperation $operation)
 	{
 		$module = $operation->module;
-
-		if ($module instanceof \Icybee\Modules\Nodes\Module)
-		{
-			$type = 'node';
-		}
-		else if ($module instanceof \Icybee\Modules\Users\Module)
-		{
-			$type = 'user';
-		}
-		else if ($module instanceof \Icybee\Modules\Sites\Module)
-		{
-			$type = 'site';
-		}
-		else
-		{
-			throw new \Exception(\ICanBoogie\format('Metadatas are not supported for instances of the given class: %class', [ '%class' => get_class($module) ]));
-		}
+		$type = self::resolve_type($module)
 
 		ActiveRecord\get_model('registry/' . $type)
 		->filter_by_targetid($operation->key)
