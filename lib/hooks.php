@@ -180,7 +180,7 @@ class Hooks
 	static public function on_operation_delete(\ICanBoogie\Operation\ProcessEvent $event, \ICanBoogie\DeleteOperation $operation)
 	{
 		$module = $operation->module;
-		$type = self::resolve_type($module)
+		$type = self::resolve_type($module);
 
 		ActiveRecord\get_model('registry/' . $type)
 		->filter_by_targetid($operation->key)
