@@ -12,6 +12,7 @@
 namespace Icybee\Modules\Registry;
 
 use ICanBoogie\ActiveRecord\Connection;
+use ICanBoogie\Module\Descriptor;
 
 class EntryModelTest extends \PHPUnit_Framework_TestCase
 {
@@ -22,7 +23,7 @@ class EntryModelTest extends \PHPUnit_Framework_TestCase
 		$descriptor = require __DIR__ . '/../descriptor.php';
 		$connection = new Connection('sqlite::memory:');
 
-		self::$model = new Model($descriptor[Module::T_MODELS]['primary'] + [
+		self::$model = new Model($descriptor[Descriptor::MODELS]['primary'] + [
 
 			Model::CONNECTION => $connection,
 			Model::NAME => 'registry'

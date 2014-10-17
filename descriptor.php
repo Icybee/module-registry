@@ -3,14 +3,14 @@
 namespace Icybee\Modules\Registry;
 
 use ICanBoogie\ActiveRecord\Model;
-use ICanBoogie\Module;
+use ICanBoogie\Module\Descriptor;
 
 return [
 
-	Module::T_CATEGORY => 'features',
-	Module::T_DESCRIPTION => 'Holds configuration settings as well as metadatas for nodes, users and sites.',
+	Descriptor::CATEGORY => 'features',
+	Descriptor::DESCRIPTION => 'Holds configuration settings as well as metadatas for nodes, users and sites.',
 
-	Module::T_MODELS => [
+	Descriptor::MODELS => [
 
 		'primary' => [
 
@@ -83,9 +83,9 @@ return [
 
 	],
 
-	Module::T_NAMESPACE => __NAMESPACE__,
-	Module::T_PERMISSION => false,
-	Module::T_REQUIRED => true,
-	Module::T_TITLE => 'Registry',
-	Module::T_VERSION => '1.0'
+	Descriptor::NS => __NAMESPACE__,
+	Descriptor::PERMISSION => false,
+	Descriptor::REQUIRED => true,
+	Descriptor::TITLE => 'Registry',
+	Descriptor::VERSION => '1.0'
 ];
