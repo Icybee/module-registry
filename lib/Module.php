@@ -11,7 +11,7 @@
 
 namespace Icybee\Modules\Registry;
 
-class Entry extends \ICanBoogie\ActiveRecord
+class Module extends \ICanBoogie\Module
 {
 
 }

@@ -1,6 +1,6 @@
-# Registry [![Build Status](https://travis-ci.org/Icybee/module-registry.png?branch=master)](https://travis-ci.org/Icybee/module-registry)
+# Registry [![Build Status](https://travis-ci.org/Icybee/module-registry.svg?branch=master)](https://travis-ci.org/Icybee/module-registry)
 
-Stores settings and options.
+Stores settings, options, and meta data.
 
 ```php
 <?php
@@ -38,17 +38,10 @@ The package requires PHP 5.4 or later.
 
 ## Installation
 
-The recommended way to install this package is through [Composer](http://getcomposer.org/).
-Create a `composer.json` file and run `php composer.phar install` command to install it:
+The recommended way to install this package is through [Composer](http://getcomposer.org/):
 
-```json
-{
-	"minimum-stability": "dev",
-	"require":
-	{
-		"icybee/module-registry": "*"
-	}
-}
+```
+$ composer require icybee/module-registry
 ```
 
 This module is part of the modules required by [Icybee](http://icybee.org).
@@ -62,7 +55,7 @@ This module is part of the modules required by [Icybee](http://icybee.org).
 The package is [available on GitHub](https://github.com/Icybee/module-registry), its repository can be
 cloned with the following command line:
 
-	$ git clone git://github.com/Icybee/module-registry.git users.noncelogin
+	$ git clone https://github.com/Icybee/module-registry.git registry
 
 
 
@@ -88,8 +81,7 @@ directory can later be cleaned with the `make clean` command.
 
 The package is continuously tested by [Travis CI](http://about.travis-ci.org/).
 
-[![Build Status](https://travis-ci.org/Icybee/module-registry.png?branch=master)](https://travis-ci.org/Icybee/module-registry)
-
+[![Build Status](https://travis-ci.org/Icybee/module-registry.svg?branch=master)](https://travis-ci.org/Icybee/module-registry)
 
 
 

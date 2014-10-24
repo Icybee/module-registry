@@ -205,7 +205,7 @@ class Hooks
 	}
 
 	/**
-	 * This si the callback for the `registry` virtual property added to the core object.
+	 * This is the callback for the `registry` virtual property added to the core object.
 	 *
 	 * @param \ICanBoogie\Core $target The core object.
 	 *

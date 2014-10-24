@@ -16,14 +16,13 @@
 		"issues": "https://github.com/Icybee/module-registry/issues",
 		"source": "https://github.com/Icybee/module-registry"
 	},
-	"minimum-stability": "dev",
 	"require": {
 		"php": ">=5.4.0",
 		"icanboogie/module-installer": "*",
-		"icanboogie/module": "2.x",
-		"icanboogie/activerecord": "2.x"
+		"icanboogie/module": ">=2.0.0",
+		"icanboogie/activerecord": ">=2.1.0"
 	},
 	"autoload": {
-		"classmap": [ "lib" ]
+		"psr-4": { "Icybee\\Modules\\Registry\\": "lib" }
 	}
 }

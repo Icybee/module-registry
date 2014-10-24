@@ -9,7 +9,7 @@ return [
 
 	Descriptor::CATEGORY => 'features',
 	Descriptor::DESCRIPTION => 'Holds configuration settings as well as metadatas for nodes, users and sites.',
-
+	Descriptor::ID => 'registry',
 	Descriptor::MODELS => [
 
 		'primary' => [
