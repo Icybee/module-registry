@@ -5,7 +5,7 @@ Stores settings, options, and meta data.
 ```php
 <?php
 
-$registry = $core->registry;
+$registry = $app->registry;
 
 $a = $registry['a_property'];           // null
 $a = $registry->get('a_property', 123); // 123
@@ -13,9 +13,9 @@ $a = $registry->get('a_property', 123); // 123
 $registry['a_property'] = 123;
 $a = $registry['a_property'];           // 123
 
-$core->user->metas['a_property'] = 123;
-$core->site->metas['a_property'] = 123;
-$core->models['articles']->one->metas['a_property'] = 123;
+$app->user->metas['a_property'] = 123;
+$app->site->metas['a_property'] = 123;
+$app->models['articles']->one->metas['a_property'] = 123;
 ``` 
 
 
