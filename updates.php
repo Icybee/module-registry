@@ -38,12 +38,9 @@ class Update20110101 extends Update
 
 				Model::SCHEMA => [
 
-					'fields' => [
+					'name' => [ 'varchar', 'primary' => true ],
+					'value' => 'text'
 
-						'name' => [ 'varchar', 'primary' => true ],
-						'value' => 'text'
-
-					]
 				]
 			],
 
@@ -51,13 +48,10 @@ class Update20110101 extends Update
 
 				Model::SCHEMA => [
 
-					'fields' => [
+					'targetid' => [ 'foreign', 'primary' => true ],
+					'name' => [ 'varchar', 'indexed' => true, 'primary' => true ],
+					'value' => 'text'
 
-						'targetid' => [ 'foreign', 'primary' => true ],
-						'name' => [ 'varchar', 'indexed' => true, 'primary' => true ],
-						'value' => 'text'
-
-					]
 				]
 			],
 
@@ -65,13 +59,10 @@ class Update20110101 extends Update
 
 				Model::SCHEMA => [
 
-					'fields' => [
+					'targetid' => [ 'foreign', 'primary' => true ],
+					'name' => [ 'varchar', 'indexed' => true, 'primary' => true ],
+					'value' => 'text'
 
-						'targetid' => [ 'foreign', 'primary' => true ],
-						'name' => [ 'varchar', 'indexed' => true, 'primary' => true ],
-						'value' => 'text'
-
-					]
 				]
 			],
 
@@ -79,13 +70,10 @@ class Update20110101 extends Update
 
 				Model::SCHEMA => [
 
-					'fields' => [
+					'targetid' => [ 'foreign', 'primary' => true ],
+					'name' => [ 'varchar', 'indexed' => true, 'primary' => true ],
+					'value' => 'text'
 
-						'targetid' => [ 'foreign', 'primary' => true ],
-						'name' => [ 'varchar', 'indexed' => true, 'primary' => true ],
-						'value' => 'text'
-
-					]
 				]
 			]
 

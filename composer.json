@@ -16,13 +16,26 @@
 		"issues": "https://github.com/Icybee/module-registry/issues",
 		"source": "https://github.com/Icybee/module-registry"
 	},
+
+	"minimum-stability": "dev",
+
 	"require": {
-		"php": ">=5.4.0",
-		"icanboogie/module-installer": "*",
-		"icanboogie/module": ">=2.0.0",
-		"icanboogie/activerecord": ">=2.1.0"
+		"php": ">=5.5.0",
+		"icanboogie/module-installer": "^1.2.3",
+		"icanboogie/module": "^2.3.0",
+		"icanboogie/activerecord": "^2.3.0"
 	},
+
+	"require-dev": {
+		"icanboogie/icanboogie": "^2.4.0",
+		"icanboogie/bind-activerecord": "^0.3.0"
+	},
+
 	"autoload": {
 		"psr-4": { "Icybee\\Modules\\Registry\\": "lib" }
+	},
+
+	"scripts": {
+		"post-autoload-dump": "ICanBoogie\\Autoconfig\\Hooks::on_autoload_dump"
 	}
 }
