@@ -12,6 +12,7 @@
 namespace Icybee\Modules\Registry;
 
 use ICanBoogie\ActiveRecord;
+use ICanBoogie\Operation;
 
 class Hooks
 {
@@ -51,7 +52,8 @@ class Hooks
 	 * support for metadatas by loading the metadatas associated with the edited object and
 	 * merging them with the current properties.
 	 *
-	 * @param Event $event
+	 * @param \Icybee\EditBlock\AlterValuesEvent $event
+	 * @param \Icybee\EditBlock $target
 	 *
 	 * @throw \Exception
 	 */
@@ -90,11 +92,12 @@ class Hooks
 	/**
 	 * This callback saves the metadatas associated with the object targeted by the operation.
 	 *
-	 * @param Event $event
+	 * @param Operation\ProcessEvent $event
+	 * @param \ICanBoogie\SaveOperation $target
 	 *
 	 * @throws \Exception
 	 */
-	static public function on_operation_save(\ICanBoogie\Operation\ProcessEvent $event, \ICanBoogie\SaveOperation $sender)
+	static public function on_operation_save(Operation\ProcessEvent $event, \ICanBoogie\SaveOperation $target)
 	{
 		$params = $event->request->params;
 
@@ -104,7 +107,7 @@ class Hooks
 		}
 
 		$targetid = $event->rc['key'];
-		$type = self::resolve_type($sender);
+		$type = self::resolve_type($target);
 
 		$model = ActiveRecord\get_model('registry/' . $type);
 		$driver_name = $model->connection->driver_name;
@@ -207,13 +210,12 @@ class Hooks
 	/**
 	 * This is the callback for the `registry` virtual property added to the core object.
 	 *
-	 * @param \ICanBoogie\Core $target The core object.
+	 * @param \ICanBoogie\Core|\ICanBoogie\Binding\ActiveRecord\CoreBindings $app
 	 *
 	 * @return Module The "registry" model.
 	 */
-
-	static public function get_registry(\ICanBoogie\Core $target)
+	static public function get_registry(\ICanBoogie\Core $app)
 	{
-		return $target->models['registry'];
+		return $app->models['registry'];
 	}
 }
