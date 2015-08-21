@@ -11,7 +11,9 @@
 
 namespace Icybee\Modules\Registry;
 
-class Model extends \ICanBoogie\ActiveRecord\Model
+use ICanBoogie\ActiveRecord\Model;
+
+class RegistryModel extends Model
 {
 	static private function flatten($values, $prefix)
 	{
