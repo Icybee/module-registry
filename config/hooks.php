@@ -29,16 +29,6 @@ return [
 		'Icybee\Modules\Users\DeleteOperation::process' => $hooks . 'on_operation_delete',
 		'Icybee\Modules\Sites\DeleteOperation::process' => $hooks . 'on_operation_delete'
 
-	],
-
-	'prototypes' => [
-
-		'ICanBoogie\Core::lazy_get_registry' => $hooks . 'get_registry',
-
-		'Icybee\Modules\Nodes\Node::lazy_get_metas' => $hooks . 'get_metas',
-		'Icybee\Modules\Users\User::lazy_get_metas' => $hooks . 'get_metas',
-		'Icybee\Modules\Sites\Site::lazy_get_metas' => $hooks . 'get_metas'
-
 	]
 
 ];
