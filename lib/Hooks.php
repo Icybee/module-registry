@@ -64,10 +64,13 @@ class Hooks
 			return;
 		}
 
+		/* @var $model ActiveRecord\Model */
+
 		$module = $event->module;
 		$type = self::resolve_type($module);
+		$model = ActiveRecord\get_model('registry/' . $type);
 
-		$metas = ActiveRecord\get_model('registry/' . $type)
+		$metas = $model
 		->select('name, value')
 		->filter_by_targetid($event->key)
 		->pairs;
@@ -105,6 +108,8 @@ class Hooks
 		{
 			return;
 		}
+
+		/* @var $model ActiveRecord\Model */
 
 		$targetid = $event->rc['key'];
 		$type = self::resolve_type($target);

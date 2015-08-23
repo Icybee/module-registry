@@ -18,6 +18,9 @@ use ICanBoogie\Module\Descriptor;
 
 class EntryModelTest extends \PHPUnit_Framework_TestCase
 {
+	/**
+	 * @var RegistryModel
+	 */
 	static private $model;
 
 	static public function setupBeforeClass()

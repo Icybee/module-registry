@@ -16,7 +16,7 @@ use Icybee\Modules\Registry\MetasHandler;
 /**
  * {@link \Icybee\Modules\Users\User} prototype bindings.
  *
- * @property-read MetasHandler $metas
+ * @property MetasHandler $metas
  */
 trait UserBindings
 {
