@@ -12,6 +12,7 @@
 namespace Icybee\Modules\Registry;
 
 use ICanBoogie\ActiveRecord\Connection;
+use ICanBoogie\ActiveRecord\Model;
 use ICanBoogie\ActiveRecord\ModelCollection;
 use ICanBoogie\Updater\Update;
 use ICanBoogie\Updater\AssertionFailed;

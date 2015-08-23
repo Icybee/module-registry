@@ -11,7 +11,11 @@
 
 namespace Icybee\Modules\Registry;
 
+use ICanBoogie\ActiveRecord;
 use ICanBoogie\ToArray;
+use Icybee\Modules\Nodes\Node;
+use Icybee\Modules\Sites\Site;
+use Icybee\Modules\Users\User;
 
 /**
  * Manages the metadatas associated with a target object.
@@ -37,7 +41,7 @@ class MetasHandler implements \ArrayAccess, ToArray
 	/**
 	 * Model managing the values.
 	 *
-	 * @var Model
+	 * @var RegistryModel
 	 */
 	protected $model;
 
@@ -46,21 +50,21 @@ class MetasHandler implements \ArrayAccess, ToArray
 	 *
 	 * @param \ICanBoogie\ActiveRecord $target
 	 *
-	 * @throws Exception
+	 * @throws \Exception
 	 */
-	public function __construct(\ICanBoogie\ActiveRecord $target)
+	public function __construct(ActiveRecord $target)
 	{
-		if ($target instanceof \Icybee\Modules\Nodes\Node)
+		if ($target instanceof Node)
 		{
 			$this->targetid = $target->nid;
 			$type = 'node';
 		}
-		else if ($target instanceof \Icybee\Modules\Users\User)
+		else if ($target instanceof User)
 		{
 			$this->targetid = $target->uid;
 			$type = 'user';
 		}
-		else if ($target instanceof \Icybee\Modules\Sites\Site)
+		else if ($target instanceof Site)
 		{
 			$this->targetid = $target->siteid;
 			$type = 'site';
@@ -72,7 +76,7 @@ class MetasHandler implements \ArrayAccess, ToArray
 
 		if (empty(self::$models[$type]))
 		{
-			self::$models[$type] = \ICanBoogie\ActiveRecord\get_model('registry/' . $type);
+			self::$models[$type] = ActiveRecord\get_model('registry/' . $type);
 		}
 
 		$this->model = self::$models[$type];

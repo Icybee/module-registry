@@ -11,10 +11,10 @@
 
 namespace Icybee\Modules\Registry\Binding;
 
-use Icybee\Modules\Registry\Model;
+use Icybee\Modules\Registry\RegistryModel;
 
 /**
- * @property Model $registry
+ * @property RegistryModel $registry
  */
 trait CoreBindings
 {
