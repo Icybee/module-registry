@@ -1,7 +1,7 @@
 # customization
 
 PACKAGE_NAME = Icybee/module-registry
-PACKAGE_VERSION = 0.1.x-dev
+PACKAGE_VERSION = 3.0.0
 
 # do not edit the following lines
 
