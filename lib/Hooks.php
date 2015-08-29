@@ -23,19 +23,19 @@ class Hooks
 	static private function resolve_type($source)
 	{
 		if ($source instanceof \Icybee\Modules\Nodes\Module
-		|| $source instanceof \Icybee\Modules\Nodes\SaveOperation)
+		|| $source instanceof \Icybee\Modules\Nodes\Operation\SaveOperation)
 		{
 			return 'node';
 		}
 
 		if ($source instanceof \Icybee\Modules\Users\Module
-		|| $source instanceof \Icybee\Modules\Users\SaveOperation)
+		|| $source instanceof \Icybee\Modules\Users\Operation\SaveOperation)
 		{
 			return 'user';
 		}
 
 		if ($source instanceof \Icybee\Modules\Sites\Module
-		|| $source instanceof \Icybee\Modules\Sites\SaveOperation)
+		|| $source instanceof \Icybee\Modules\Sites\Operation\SaveOperation)
 		{
 			return 'site';
 		}
@@ -96,11 +96,11 @@ class Hooks
 	 * This callback saves the metadatas associated with the object targeted by the operation.
 	 *
 	 * @param Operation\ProcessEvent $event
-	 * @param \ICanBoogie\SaveOperation $target
+	 * @param \ICanBoogie\Module\Operation\SaveOperation $target
 	 *
 	 * @throws \Exception
 	 */
-	static public function on_operation_save(Operation\ProcessEvent $event, \ICanBoogie\SaveOperation $target)
+	static public function on_operation_save(Operation\ProcessEvent $event, \ICanBoogie\Module\Operation\SaveOperation $target)
 	{
 		$params = $event->request->params;
 
@@ -181,11 +181,11 @@ class Hooks
 	 * Deletes the metadatas associated with a record when it is deleted.
 	 *
 	 * @param \ICanBoogie\Operation\ProcessEvent $event
-	 * @param \ICanBoogie\DeleteOperation $operation
+	 * @param \ICanBoogie\Module\Operation\DeleteOperation $operation
 	 *
 	 * @throws \Exception
 	 */
-	static public function on_operation_delete(\ICanBoogie\Operation\ProcessEvent $event, \ICanBoogie\DeleteOperation $operation)
+	static public function on_operation_delete(\ICanBoogie\Operation\ProcessEvent $event, \ICanBoogie\Module\Operation\DeleteOperation $operation)
 	{
 		$module = $operation->module;
 		$type = self::resolve_type($module);

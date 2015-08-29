@@ -21,12 +21,12 @@ return [
 	Icybee\Modules\Users\EditBlock::class . '::alter_values' => $hooks . 'on_editblock_alter_values',
 	Icybee\Modules\Sites\EditBlock::class . '::alter_values' => $hooks . 'on_editblock_alter_values',
 
-	Icybee\Modules\Nodes\SaveOperation::class . '::process' => $hooks . 'on_operation_save',
-	Icybee\Modules\Users\SaveOperation::class . '::process' => $hooks . 'on_operation_save',
-	Icybee\Modules\Sites\SaveOperation::class . '::process' => $hooks . 'on_operation_save',
+	Icybee\Modules\Nodes\Operation\SaveOperation::class . '::process' => $hooks . 'on_operation_save',
+	Icybee\Modules\Users\Operation\SaveOperation::class . '::process' => $hooks . 'on_operation_save',
+	Icybee\Modules\Sites\Operation\SaveOperation::class . '::process' => $hooks . 'on_operation_save',
 
-	Icybee\Modules\Nodes\DeleteOperation::class . '::process' => $hooks . 'on_operation_delete',
-	Icybee\Modules\Users\DeleteOperation::class . '::process' => $hooks . 'on_operation_delete',
-	Icybee\Modules\Sites\DeleteOperation::class . '::process' => $hooks . 'on_operation_delete'
+	Icybee\Modules\Nodes\Operation\DeleteOperation::class . '::process' => $hooks . 'on_operation_delete',
+	Icybee\Modules\Users\Operation\DeleteOperation::class . '::process' => $hooks . 'on_operation_delete',
+	Icybee\Modules\Sites\Operation\DeleteOperation::class . '::process' => $hooks . 'on_operation_delete'
 
 ];
