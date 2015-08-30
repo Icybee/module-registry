@@ -52,12 +52,12 @@ class Hooks
 	 * support for metadatas by loading the metadatas associated with the edited object and
 	 * merging them with the current properties.
 	 *
-	 * @param \Icybee\EditBlock\AlterValuesEvent $event
-	 * @param \Icybee\EditBlock $target
+	 * @param \Icybee\Block\EditBlock\AlterValuesEvent $event
+	 * @param \Icybee\Block\EditBlock $target
 	 *
 	 * @throw \Exception
 	 */
-	static public function on_editblock_alter_values(\Icybee\EditBlock\AlterValuesEvent $event, \Icybee\EditBlock $target)
+	static public function on_editblock_alter_values(\Icybee\Block\EditBlock\AlterValuesEvent $event, \Icybee\Block\EditBlock $target)
 	{
 		if (!$event->key)
 		{

@@ -17,9 +17,9 @@ $hooks = Hooks::class . '::';
 
 return [
 
-	Icybee\Modules\Nodes\EditBlock::class . '::alter_values' => $hooks . 'on_editblock_alter_values',
-	Icybee\Modules\Users\EditBlock::class . '::alter_values' => $hooks . 'on_editblock_alter_values',
-	Icybee\Modules\Sites\EditBlock::class . '::alter_values' => $hooks . 'on_editblock_alter_values',
+	Icybee\Modules\Nodes\Block\EditBlock::class . '::alter_values' => $hooks . 'on_editblock_alter_values',
+	Icybee\Modules\Users\Block\EditBlock::class . '::alter_values' => $hooks . 'on_editblock_alter_values',
+	Icybee\Modules\Sites\Block\EditBlock::class . '::alter_values' => $hooks . 'on_editblock_alter_values',
 
 	Icybee\Modules\Nodes\Operation\SaveOperation::class . '::process' => $hooks . 'on_operation_save',
 	Icybee\Modules\Users\Operation\SaveOperation::class . '::process' => $hooks . 'on_operation_save',
