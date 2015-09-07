@@ -66,7 +66,7 @@ class MetasHandler implements \ArrayAccess, ToArray
 		}
 		else if ($target instanceof Site)
 		{
-			$this->targetid = $target->siteid;
+			$this->targetid = $target->site_id;
 			$type = 'site';
 		}
 		else
