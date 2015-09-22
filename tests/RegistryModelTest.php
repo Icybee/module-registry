@@ -16,7 +16,7 @@ use ICanBoogie\ActiveRecord\ConnectionCollection;
 use ICanBoogie\ActiveRecord\ModelCollection;
 use ICanBoogie\Module\Descriptor;
 
-class EntryModelTest extends \PHPUnit_Framework_TestCase
+class RegistryModelTest extends \PHPUnit_Framework_TestCase
 {
 	/**
 	 * @var RegistryModel
@@ -65,6 +65,13 @@ class EntryModelTest extends \PHPUnit_Framework_TestCase
 		$this->assertNull($model['unset_test']);
 
 		$model['unset_test'] = 1;
+		$this->assertTrue($model->filter_by_name('unset_test')->exists);
+
+		$model['unset_test'] = '';
+		$this->assertFalse($model->filter_by_name('unset_test')->exists);
+		$this->assertNull($model['unset_test']);
+
+		$model['unset_test'] = "1";
 		$this->assertTrue($model->filter_by_name('unset_test')->exists);
 
 		unset($model['unset_test']);

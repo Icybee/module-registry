@@ -79,7 +79,7 @@ class Hooks
 
 		if (isset($values['metas']))
 		{
-			if ($values['metas'] instanceof MetasHandler)
+			if ($values['metas'] instanceof MetaCollection)
 			{
 				$values['metas'] = $values['metas']->to_aray();
 			}
@@ -205,11 +205,11 @@ class Hooks
 	 *
 	 * @param \Icybee\Modules\Nodes\Node|\Icybee\Modules\Users\User|\Icybee\Modules\Sites\Site $target
 	 *
-	 * @return MetasHandler A {@link MetasHandler} instance.
+	 * @return MetaCollection A {@link MetaCollection} instance.
 	 */
 	static public function get_metas(\ICanBoogie\ActiveRecord $target)
 	{
-		return new MetasHandler($target);
+		return new MetaCollection($target);
 	}
 
 	/**

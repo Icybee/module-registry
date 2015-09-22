@@ -13,6 +13,7 @@ namespace Icybee\Modules\Registry;
 
 use ICanBoogie\ActiveRecord;
 use ICanBoogie\ToArray;
+
 use Icybee\Modules\Nodes\Node;
 use Icybee\Modules\Sites\Site;
 use Icybee\Modules\Users\User;
@@ -20,7 +21,7 @@ use Icybee\Modules\Users\User;
 /**
  * Manages the metadatas associated with a target object.
  */
-class MetasHandler implements \ArrayAccess, ToArray
+class MetaCollection implements \ArrayAccess, ToArray
 {
 	static private $models;
 
@@ -71,7 +72,7 @@ class MetasHandler implements \ArrayAccess, ToArray
 		}
 		else
 		{
-			throw new \Exception(\ICanBoogie\format('Metadatas are not supported for instances of %class', [ '%class' => get_class($target) ]));
+			throw new \Exception(\ICanBoogie\format('Meta are not supported for instances of %class', [ '%class' => get_class($target) ]));
 		}
 
 		if (empty(self::$models[$type]))

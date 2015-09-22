@@ -11,12 +11,12 @@
 
 namespace Icybee\Modules\Registry\Binding;
 
-use Icybee\Modules\Registry\MetasHandler;
+use Icybee\Modules\Registry\MetaCollection;
 
 /**
  * {@link \Icybee\Modules\Sites\Site} prototype bindings.
  *
- * @property-read MetasHandler $metas
+ * @property-read MetaCollection $metas
  */
 trait SiteBindings
 {

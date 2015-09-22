@@ -41,7 +41,15 @@ class RegistryModel extends Model
 
 	protected $cached_values = [];
 
-	public function get($name, $default=null)
+	/**
+	 * Gets a value from the registry.
+	 *
+	 * @param $name
+	 * @param null $default
+	 *
+	 * @return mixed
+	 */
+	public function get($name, $default = null)
 	{
 		if ($default || !array_key_exists($name, $this->cached_values))
 		{
@@ -89,15 +97,13 @@ class RegistryModel extends Model
 	}
 
 	/**
-	 *
-	 * Set a value, or a tree of values, in the registry.
+	 * Sets a value, or a tree of values, in the registry.
 	 *
 	 * One can delete key (and all its sub keys), by setting it to null.
 	 *
 	 * @param string $name
 	 * @param mixed $value
 	 */
-
 	public function set($name, $value)
 	{
 		$this->cached_values = [];
@@ -116,7 +122,7 @@ class RegistryModel extends Model
 			return;
 		}
 
-		if ($value === null)
+		if ($value === null || $value === '')
 		{
 			$this->where('name = ? OR name LIKE ?', $name, $name . '.%')->delete();
 
