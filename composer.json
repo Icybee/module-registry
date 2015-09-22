@@ -27,8 +27,8 @@
 	},
 
 	"require-dev": {
-		"icanboogie/icanboogie": "^2.4.0",
-		"icanboogie/bind-activerecord": "^0.3.0"
+		"icanboogie/icanboogie": "^3.0.0",
+		"icanboogie/bind-activerecord": "^1.0.0"
 	},
 
 	"autoload": {

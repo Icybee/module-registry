@@ -19,13 +19,13 @@ require __DIR__ . '/../vendor/autoload.php';
 # Create the app used for the tests.
 #
 
-/* @var $app Core|ModuleBindings|Binding\ActiveRecord\CoreBindings */
+/* @var $app Core|ModuleBindings */
 
 $app = new Core(array_merge_recursive([ 'module-path' => [] ] + get_autoconfig(), [
 
 	'config-path' => [
 
-		__DIR__ . DIRECTORY_SEPARATOR . 'config' => Autoconfig\Config::CONFIG_WEIGHT_MODULE
+		__DIR__ . DIRECTORY_SEPARATOR . 'config' => Autoconfig\Config::CONFIG_WEIGHT_APP
 
 	],
 
@@ -38,9 +38,4 @@ $app = new Core(array_merge_recursive([ 'module-path' => [] ] + get_autoconfig()
 ]));
 
 $app->boot();
-$errors = $app->modules->install();
-
-foreach ($errors as $error)
-{
-	echo $error . PHP_EOL;
-}
+$app->modules->install();
