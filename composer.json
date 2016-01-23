@@ -21,14 +21,11 @@
 
 	"require": {
 		"php": ">=5.5.0",
-		"icanboogie/module-installer": "^1.2.3",
-		"icanboogie/module": "^3.0.0",
-		"icanboogie/activerecord": "^2.3.0"
+		"icanboogie/module-installer": "^1.2.3"
 	},
 
 	"require-dev": {
-		"icanboogie/icanboogie": "^3.0.0",
-		"icanboogie/bind-activerecord": "^2.3.0"
+		"icybee/core": "^3.0"
 	},
 
 	"autoload": {
