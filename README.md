@@ -5,6 +5,8 @@ Stores settings, options, and meta data.
 ```php
 <?php
 
+/* @var \ICanBoogie\Application $app */
+
 $registry = $app->registry;
 
 $a = $registry['a_property'];           // null
@@ -30,7 +32,7 @@ $app->models['articles']->one->metas['a_property'] = 123;
 
 ## Requirement
 
-The package requires PHP 5.4 or later.
+The package requires PHP 5.6 or later.
 
 
 

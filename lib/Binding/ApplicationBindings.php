@@ -16,7 +16,7 @@ use Icybee\Modules\Registry\RegistryModel;
 /**
  * @property RegistryModel $registry
  */
-trait CoreBindings
+trait ApplicationBindings
 {
 
 }

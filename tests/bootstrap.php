@@ -11,31 +11,9 @@
 
 namespace ICanBoogie;
 
-use ICanBoogie\Module\CoreBindings as ModuleBindings;
+chdir(__DIR__);
 
 require __DIR__ . '/../vendor/autoload.php';
 
-#
-# Create the app used for the tests.
-#
-
-/* @var $app Core|ModuleBindings */
-
-$app = new Core(array_merge_recursive([ 'module-path' => [] ] + get_autoconfig(), [
-
-	'config-path' => [
-
-		__DIR__ . DIRECTORY_SEPARATOR . 'config' => Autoconfig\Config::CONFIG_WEIGHT_APP
-
-	],
-
-	'module-path' => [
-
-		realpath(__DIR__ . '/../')
-
-	]
-
-]));
-
-$app->boot();
+$app = boot();
 $app->modules->install();

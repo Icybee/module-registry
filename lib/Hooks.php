@@ -215,11 +215,11 @@ class Hooks
 	/**
 	 * This is the callback for the `registry` virtual property added to the core object.
 	 *
-	 * @param \ICanBoogie\Core|\ICanBoogie\Binding\ActiveRecord\CoreBindings $app
+	 * @param \ICanBoogie\Application $app
 	 *
 	 * @return Module The "registry" model.
 	 */
-	static public function get_registry(\ICanBoogie\Core $app)
+	static public function get_registry(\ICanBoogie\Application $app)
 	{
 		return $app->models['registry'];
 	}

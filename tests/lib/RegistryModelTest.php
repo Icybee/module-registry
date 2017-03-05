@@ -11,11 +11,6 @@
 
 namespace Icybee\Modules\Registry;
 
-use ICanBoogie\ActiveRecord\Connection;
-use ICanBoogie\ActiveRecord\ConnectionCollection;
-use ICanBoogie\ActiveRecord\ModelCollection;
-use ICanBoogie\Module\Descriptor;
-
 class RegistryModelTest extends \PHPUnit_Framework_TestCase
 {
 	/**
