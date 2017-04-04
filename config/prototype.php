@@ -18,7 +18,7 @@ $hooks = Hooks::class . '::';
 
 return [
 
-	ICanBoogie\Core::class . '::lazy_get_registry' => $hooks . 'get_registry',
+	ICanBoogie\Application::class . '::lazy_get_registry' => $hooks . 'get_registry',
 
 	Icybee\Modules\Nodes\Node::class . '::lazy_get_metas' => $hooks . 'get_metas',
 	Icybee\Modules\Users\User::class . '::lazy_get_metas' => $hooks . 'get_metas',
